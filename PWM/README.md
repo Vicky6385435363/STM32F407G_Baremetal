@@ -1,4 +1,4 @@
-# STM32 Bare-Metal PWM & Hardware Delay 💡
+# STM32 Bare-Metal PWM & Hardware Delay 
 
 > **Overview:** A complete bare-metal C implementation for the STM32F407 that generates a smooth, mathematically precise "breathing" LED effect. It avoids standard libraries, writing directly to the hardware registers to use Timer 4 for Pulse Width Modulation (PWM) on Pin D12, and Timer 5 for a non-blocking, accurate hardware delay.
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 🗺️ Register Map & Peripherals
+## Register Map & Peripherals
 
 The project interacts directly with the following hardware registers to control the CPU, GPIO, and Timers without overhead.
 
@@ -29,7 +29,7 @@ The project interacts directly with the following hardware registers to control 
 
 ---
 
-## 🔍 Code Walkthrough
+## Code Walkthrough
 
 ### 1. Initialization & Memory Management
 Before any peripheral works, it needs power. Standard integer types are used to perfectly match the 32-bit hardware architecture.
@@ -55,7 +55,7 @@ Timer 4 is configured to generate a 1kHz PWM signal directly out of Pin D12.
 
 ---
 
-## 🌊 The Breathing Effect
+## The Breathing Effect
 
 The `main()` loop coordinates the PWM and delay functions to create the visual effect. Embedded systems must never exit, so everything runs inside an infinite `while(1)` loop.
 
