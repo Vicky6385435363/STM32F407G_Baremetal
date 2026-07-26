@@ -6,7 +6,7 @@ This project is intentionally written using **direct memory-mapped register acce
 
 ---
 
-## 🔧 Hardware Assumptions
+## Hardware Assumptions
 
 | Item | Value |
 |---|---|
