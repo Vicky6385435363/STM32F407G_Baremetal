@@ -202,20 +202,6 @@ The LED (and human eye) can't perceive the 1 kHz flicker - it just perceives the
 
 ---
 
-## 🛠️ Building & Flashing
-
-This is bare-metal C with no dependencies beyond `<stdint.h>` and a suitable startup file/linker script for your STM32F4 target (not included here). Typical toolchain:
-
-```bash
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -c pwm_led.c -o pwm_led.o
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -T linker_script.ld startup.o pwm_led.o -o pwm_led.elf
-arm-none-eabi-objcopy -O binary pwm_led.elf pwm_led.bin
-st-flash write pwm_led.bin 0x8000000
-```
-
-> You'll need a startup file (reset handler, vector table) and linker script matching your specific STM32F4 part - these aren't shown since they're board/chip specific.
-
----
 
 ## Known Caveats / Things to Verify for Your Board
 
