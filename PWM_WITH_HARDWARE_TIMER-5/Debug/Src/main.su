@@ -1,0 +1,4 @@
+../Src/main.c:28:6:init_delay_timer	4	static
+../Src/main.c:39:6:delay_ms	16	static
+../Src/main.c:59:6:init_pwm_led	4	static
+../Src/main.c:87:5:main	16	static
