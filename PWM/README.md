@@ -4,7 +4,7 @@
 
 ---
 
-## 🛠 Hardware Requirements
+## Hardware Requirements
 
 *   **Microcontroller:** STM32F407 (or compatible STM32F4 series)
 *   **Output:** Port D, Pin 12 (connected to an onboard or external LED)
