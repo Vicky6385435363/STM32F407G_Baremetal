@@ -49,12 +49,12 @@ The **GPIOD Alternate Function High register** (AFR[1] in ST's terminology). GPI
 ```c
 #define TIM4_CR1     *((volatile uint32_t*)0x40000800)
 ```
-TIM4's **Control Register 1**. Controls basic timer behavior — most importantly bit 0 (`CEN`), which starts/stops the counter.
+TIM4's **Control Register 1**. Controls basic timer behavior - most importantly bit 0 (`CEN`), which starts/stops the counter.
 
 ```c
 #define TIM4_CCMR1   *((volatile uint32_t*)0x40000818)
 ```
-**Capture/Compare Mode Register 1**. Configures channels 1 and 2 — specifically, whether each channel is used for input capture or output compare, and (in this case) which PWM mode to use.
+**Capture/Compare Mode Register 1**. Configures channels 1 and 2 - specifically, whether each channel is used for input capture or output compare, and (in this case) which PWM mode to use.
 
 ```c
 #define TIM4_CCER    *((volatile uint32_t*)0x40000820)
@@ -85,7 +85,7 @@ void delay(volatile uint32_t count) {
     while(count--) {}
 }
 ```
-A crude busy-wait / "spin loop" delay. It counts down from `count` to 0, doing nothing each iteration. `count` is marked `volatile` so the compiler doesn't optimize the empty loop away entirely. This is **not** a precise, calibrated delay (it depends on CPU clock speed and compiler optimization level) — it's just enough to make brightness changes visible to the human eye.
+A crude busy-wait / "spin loop" delay. It counts down from `count` to 0, doing nothing each iteration. `count` is marked `volatile` so the compiler doesn't optimize the empty loop away entirely. This is **not** a precise, calibrated delay (it depends on CPU clock speed and compiler optimization level) - it's just enough to make brightness changes visible to the human eye.
 
 ---
 
