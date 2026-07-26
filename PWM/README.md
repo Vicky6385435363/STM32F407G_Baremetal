@@ -117,7 +117,7 @@ Each GPIO pin occupies 2 bits in `MODER`, at position `pin_number * 2`. For pin 
 GPIOD_AFRH &= ~(0xF << 16);
 GPIOD_AFRH |= (2 << 16);     // Set AF2 (0010)
 ```
-`AFRH` (AFR[1]) covers pins 8–15, with each pin getting a 4-bit field. Pin 12 is the **third** pin in this register (pins 8, 9, 10, 11, then 12), occupying bits 16-19 (`(12-8)*4 = 16`). The code clears those 4 bits, then writes `2` (binary `0010`), selecting **AF2**, which on the STM32F407's pin table is the alternate function mapped to **TIM4** on this pin. This is what actually connects the timer's internal PWM signal to the physical PD12 pin.
+`AFRH` (AFR[1]) covers pins 8-15, with each pin getting a 4-bit field. Pin 12 is the **third** pin in this register (pins 8, 9, 10, 11, then 12), occupying bits 16-19 (`(12-8)*4 = 16`). The code clears those 4 bits, then writes `2` (binary `0010`), selecting **AF2**, which on the STM32F407's pin table is the alternate function mapped to **TIM4** on this pin. This is what actually connects the timer's internal PWM signal to the physical PD12 pin.
 
 #### Step 3 - Set PWM Frequency
 
@@ -220,7 +220,7 @@ st-flash write pwm_led.bin 0x8000000
 ## Known Caveats / Things to Verify for Your Board
 
 - **Timer clock assumption**: The 16 MHz assumption for APB1 timer clock is uncommon on real STM32F407 boards after full clock-tree configuration (which typically yields 42 or 84 MHz on APB1 timers). If you haven't configured `RCC_CFGR` clock dividers elsewhere, verify your actual `SYSCLK`/APB1 timer clock before trusting the 1 kHz figure.
-- **AF2 on PD12 → TIM4**: Confirmed correct for STM32F4 devices per the alternate function mapping table — PD12 supports `TIM4_CH1` on AF2.
+- **AF2 on PD12 → TIM4**: Confirmed correct for STM32F4 devices per the alternate function mapping table - PD12 supports `TIM4_CH1` on AF2.
 - **`delay()` accuracy**: Not calibrated to real time; it's compiler/optimization-level and CPU-clock dependent.
 
 ---
