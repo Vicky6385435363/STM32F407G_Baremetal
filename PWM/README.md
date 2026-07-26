@@ -44,7 +44,7 @@ The **GPIOD mode register**. Each GPIO pin has 2 bits here that select its mode:
 ```c
 #define GPIOD_AFRH   *((volatile uint32_t*)0x40020C24)
 ```
-The **GPIOD Alternate Function High register** (AFR[1] in ST's terminology). GPIO pins 8-15 use this register (pins 0–7 use `AFRL`/AFR[0] instead) to select *which* internal peripheral (Timer, USART, I2C, etc.) is connected to the pin when it's in Alternate Function mode. Each pin gets 4 bits (16 possible AF values, AF0–AF15).
+The **GPIOD Alternate Function High register** (AFR[1] in ST's terminology). GPIO pins 8-15 use this register (pins 0-7 use `AFRL`/AFR[0] instead) to select *which* internal peripheral (Timer, USART, I2C, etc.) is connected to the pin when it's in Alternate Function mode. Each pin gets 4 bits (16 possible AF values, AF0–AF15).
 
 ```c
 #define TIM4_CR1     *((volatile uint32_t*)0x40000800)
